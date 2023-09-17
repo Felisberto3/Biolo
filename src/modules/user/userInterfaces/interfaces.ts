@@ -1,19 +1,23 @@
-import { User } from "@prisma/client"
+import { Usuario } from "@prisma/client"
 
-interface IcreateUser {
+interface IcreateUsuario {
+    first_name : string,
+    last_name:string,
     email: string,
-    password: string
+    password_hash: string
 }
 
-interface IUserRepository {
+interface IUsuarioRepository {
     create({
+        first_name,
+        last_name,
         email,
-        password
-    }: IcreateUser): Promise<User>,
+        password_hash
+    }: IcreateUsuario): Promise<Usuario>,
 
-    findByEmail(email: string ): Promise<User>,
+    findByEmail(email: string ): Promise<Usuario>,
 
-    findById(userId: string): Promise<User>,
+    findById(id: number): Promise<Usuario>,
 }
 
-export { IUserRepository, IcreateUser }
+export { IUsuarioRepository, IcreateUsuario }
