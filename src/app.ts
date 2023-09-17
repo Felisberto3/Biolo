@@ -4,4 +4,4 @@ dotenv.config()
 
 const app = express()
 
-export {  app  }
+export { app }
