@@ -1,0 +1,5 @@
+class confirmUserController {
+
+}
+
+export { confirmUserController }
