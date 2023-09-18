@@ -1,5 +1,19 @@
 import { Usuario } from "@prisma/client"
 
+interface IUsuarioResponse {
+    token: string,
+    email: string,
+    first_name: string,
+    last_name: string,
+    password_hash: string
+}
+
+interface IcreateUsuarioDto {
+    first_name : string,
+    last_name:string,
+    email: string,
+    password: string
+}
 interface IcreateUsuario {
     first_name : string,
     last_name:string,
@@ -20,4 +34,4 @@ interface IUsuarioRepository {
     findById(id: number): Promise<Usuario>,
 }
 
-export { IUsuarioRepository, IcreateUsuario }
+export { IUsuarioRepository, IcreateUsuario, IcreateUsuarioDto, IUsuarioResponse}
