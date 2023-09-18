@@ -1,5 +1,4 @@
 import { createUserShema } from "src/shema/createUserSchema";
-import { IcreateUsuario } from "../../userInterfaces/interfaces";
 import { CreateUserCase } from "./createUserCase";
 import { Response, Request  } from "express";
 
