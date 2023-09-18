@@ -1,6 +1,5 @@
 import { hash } from "bcrypt";
 import { IUsuarioRepository, IcreateUsuario, IUsuarioResponse, IcreateUsuarioDto } from "../../userInterfaces/interfaces";
-import { Usuario } from "@prisma/client";
 import { createTokenService } from "src/services/createTokenService";
 
 class CreateUserCase {
