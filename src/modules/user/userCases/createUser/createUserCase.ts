@@ -19,25 +19,6 @@ class CreateUserCase {
 
     return password_hash
 
-
-
-    // const user = await this.userRepository.create({
-    //     first_name,
-    //     last_name,
-    //     email,
-    //     password_hash
-    //    })
-
-    // const token = createTokenService(user.id )
-
-    // return { 
-    //     first_name,
-    //     last_name,
-    //     email,
-    //     password_hash,
-    //     token
-    //  }
-    
    }
 }
 

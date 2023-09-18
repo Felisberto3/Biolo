@@ -1,26 +1,22 @@
 
-import { Request, Response } from "express";
 import { UsuarioRepository } from "../../repository/UserRepository";
-class ConfirmUser {
-    constructor(private confirmCodeDto: number, private userRepository: UsuarioRepository) { }
+import { createTokenService } from "src/services/createTokenService";
 
-    async handle(req: Request, res: Response) {
-        const Code = this.confirmCodeDto
+class ConfirmUserCase {
+    constructor( private userRepository: UsuarioRepository) { }
 
-        const sentCode = req.mightUser.confirmCode
+    async execute(data: mightUser) {
 
-        if (Code !== sentCode)
-            throw new Error("confirmation code incorrect");
+        const user = await this.userRepository.create(data)
 
-        const user = this.userRepository.create({ 
-            first_name: req.mightUser.first_name, 
-            last_name: req.mightUser.last_name, 
-            email: req.mightUser.email, 
-            password_hash: req.mightUser.password_hash
-        })
+        const token = createTokenService(user.id)
 
-        return user
+        return { 
+            userId: user.id,
+            token
+        }
+
     }
 }
 
-export { ConfirmUser }
+export { ConfirmUserCase }

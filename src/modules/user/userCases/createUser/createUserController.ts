@@ -9,7 +9,7 @@ declare global {
         last_name: string,
         email: string,
         password_hash: string,
-        confirmCode: number
+        codeSent?: number
     }
     namespace Express {
         interface Request  {
@@ -35,14 +35,14 @@ class CreateUserController {
 
     const password_hash = await this.createUserCase.execute({ email, password })
 
-    const confirmCode = Math.floor( Math.random() * 10000 )
+    const codeSent = Math.floor( Math.random() * 10000 )
 
     req.mightUser = {
         first_name,
         last_name,
         email,
         password_hash,
-        confirmCode
+        codeSent
     }
 
     return res.status(200).json({ message: 'confirm code sent in user email'})
