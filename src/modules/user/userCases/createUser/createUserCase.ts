@@ -6,11 +6,9 @@ class CreateUserCase {
     constructor(private userRepository: IUsuarioRepository){}
 
    async execute({
-    first_name,
-    last_name,
     email,
     password
-   }: IcreateUsuarioDto ): Promise<IUsuarioResponse >{
+   }: IcreateUsuarioDto ): Promise<string >{
     const userExist = await this.userRepository.findByEmail(email)
 
     if (userExist.email) 
@@ -18,22 +16,24 @@ class CreateUserCase {
 
     const password_hash = await hash(password, 8)
 
-    const user = await this.userRepository.create({
-        first_name,
-        last_name,
-        email,
-        password_hash
-       })
+    return password_hash
 
-    const token = createTokenService(user.id )
+    // const user = await this.userRepository.create({
+    //     first_name,
+    //     last_name,
+    //     email,
+    //     password_hash
+    //    })
 
-    return { 
-        token,
-        first_name,
-        last_name,
-        email,
-        password_hash
-     }
+    // const token = createTokenService(user.id )
+
+    // return { 
+    //     first_name,
+    //     last_name,
+    //     email,
+    //     password_hash,
+    //     token
+    //  }
     
    }
 }

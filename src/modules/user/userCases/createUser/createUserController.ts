@@ -2,6 +2,21 @@
 import { CreateUserCase } from "./createUserCase";
 import { Response, Request  } from "express";
 
+
+declare global {
+    interface mightUser {
+        first_name: string,
+        last_name: string,
+        email: string,
+        password_hash: string
+    }
+    namespace Express {
+        interface Request  {
+            mightUser?: mightUser
+        }
+    }
+}
+
 class CreateUserController {
     constructor(private createUserCase: CreateUserCase){}
 
@@ -17,9 +32,21 @@ class CreateUserController {
     //     throw new Error('Dados invalidos!')
     // }
 
-    const Usuario = this.createUserCase.execute({ first_name, last_name, email, password })
+    const password_hash = await this.createUserCase.execute({ email, password })
 
-    return res.status(201).json(Usuario)
+    const confirmCode = Math.floor( Math.random() * 10000 )
+
+    console.log(confirmCode);
+    
+
+    // req.mightUser = {
+    //     first_name,
+    //     last_name,
+    //     email,
+    //     password_hash
+    // }
+
+    return res.status(201).json({ message: 'ok'})
    }
 }
 
