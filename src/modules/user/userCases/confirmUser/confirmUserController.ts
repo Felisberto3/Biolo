@@ -9,7 +9,6 @@ class ConfirmUserController {
 
         const { first_name, last_name, email, password_hash, codeSent } = req.mightUser
 
-
         if (Code !== codeSent)
             throw new Error("confirmation code incorrect");
 
@@ -21,7 +20,6 @@ class ConfirmUserController {
         }
 
         const newUserIdAndToken = await this.confirmUserCase.execute(data)
-
 
         res.status(201).json({ newUserIdAndToken })
     }
