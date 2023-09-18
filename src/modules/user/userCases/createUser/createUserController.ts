@@ -8,7 +8,8 @@ declare global {
         first_name: string,
         last_name: string,
         email: string,
-        password_hash: string
+        password_hash: string,
+        confirmCode: number
     }
     namespace Express {
         interface Request  {
@@ -36,17 +37,15 @@ class CreateUserController {
 
     const confirmCode = Math.floor( Math.random() * 10000 )
 
-    console.log(confirmCode);
-    
+    req.mightUser = {
+        first_name,
+        last_name,
+        email,
+        password_hash,
+        confirmCode
+    }
 
-    // req.mightUser = {
-    //     first_name,
-    //     last_name,
-    //     email,
-    //     password_hash
-    // }
-
-    return res.status(201).json({ message: 'ok'})
+    return res.status(200).json({ message: 'confirm code sent in user email'})
    }
 }
 

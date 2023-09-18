@@ -17,8 +17,10 @@ class CreateUserController {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { first_name, last_name, email, password } = req.body;
-            const Usuario = this.createUserCase.execute({ first_name, last_name, email, password });
-            return res.status(201).json(Usuario);
+            const password_hash = yield this.createUserCase.execute({ email, password });
+            const confirmCode = Math.floor(Math.random() * 10000);
+            console.log(confirmCode);
+            return res.status(201).json({ message: confirmCode });
         });
     }
 }

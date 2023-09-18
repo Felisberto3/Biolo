@@ -9,6 +9,7 @@ class CreateUserCase {
     email,
     password
    }: IcreateUsuarioDto ): Promise<string >{
+
     const userExist = await this.userRepository.findByEmail(email)
 
     if (userExist.email) 
@@ -17,6 +18,8 @@ class CreateUserCase {
     const password_hash = await hash(password, 8)
 
     return password_hash
+
+
 
     // const user = await this.userRepository.create({
     //     first_name,
