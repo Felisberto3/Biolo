@@ -5,8 +5,8 @@ import nodemailer from 'nodemailer';
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
-    user:   'felisbertoalberto183l@gmail.com',   // anteriormente :  'seu_email@gmail.com', // Seu endereço de e-mail
-    pass: 'Fidel1d@de'     // Sua senha ou token de aplicativo
+    user:   'felisbertoalberto183@gmail.com',   // anteriormente :  'seu_email@gmail.com', // Seu endereço de e-mail
+    pass: 'Fidel1d@de' //anteriormente :"sua_senha"    // Sua senha ou token de aplicativo
   },
 });
 
