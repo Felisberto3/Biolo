@@ -36,6 +36,10 @@ class UserRepository implements IRepositoryDto {
             data: {bornDate,firstName,lastName,passwordHash }       
          })
     }
+
+    async delete(id: number) {
+        return prisma.user.delete({ where: { id }})
+    }
 }
 
 
