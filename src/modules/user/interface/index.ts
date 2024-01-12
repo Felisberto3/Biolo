@@ -5,10 +5,20 @@ interface IcreateUserDto {
     passwordHash: string
 }
 
+interface IUpdateUserDto {
+    id?: number,
+    firstName?: string,
+    lastName?: string,
+    bornDate?: string,
+    passwordHash?: string,
+    imagePath?: string,
+    password?:string
+}
 interface IRepositoryDto {
     create({ email, passwordHash }: IcreateUserDto): Promise<User>
     findByEmail(email: string): Promise<User | null>
     findById(id: number): Promise<User | null>
+    update({ bornDate,firstName,lastName,passwordHash, imagePath, id }:IUpdateUserDto): Promise<User | null>
 }
 
-export { IcreateUserDto, IRepositoryDto }
+export { IcreateUserDto, IRepositoryDto, IUpdateUserDto }

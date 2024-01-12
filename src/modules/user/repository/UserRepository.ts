@@ -1,5 +1,5 @@
 import { User } from "@prisma/client";
-import { IRepositoryDto, IcreateUserDto } from "../interface";
+import { IRepositoryDto, IUpdateUserDto, IcreateUserDto } from "../interface";
 import { prisma } from "../../../prisma";
 
 class UserRepository implements IRepositoryDto {
@@ -28,6 +28,13 @@ class UserRepository implements IRepositoryDto {
 
     async findAll(){
         return await prisma.user.findMany()
+    }
+
+    async update({id, bornDate,firstName,lastName,passwordHash }: IUpdateUserDto){
+        return prisma.user.update({
+            where:{ id },
+            data: {bornDate,firstName,lastName,passwordHash }       
+         })
     }
 }
 
