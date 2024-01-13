@@ -22,12 +22,17 @@ function ValidateUpdateUserData ({ firstName,lastName,bornDate, password,imagePa
         bornDate: Yup.string(),
          password: Yup.string(),
         imagePath: Yup.string()
-    })
+    })  
 
+    try {
+        userSchema.validateSync({ firstName,lastName,bornDate, password,imagePath })
+
+    } catch (error) {
+        throw new Error(" Data type invalid");
+    }
+ 
     
-    if (! userSchema.validateSync({ firstName,lastName,bornDate, password,imagePath }, { abortEarly: false })) {
-         throw new Error(" Data type invalid");
-    } 
+    
 }
 
 export { ValidateAuthUserData,ValidateUpdateUserData  }

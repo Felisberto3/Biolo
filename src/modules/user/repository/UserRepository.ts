@@ -30,18 +30,20 @@ class UserRepository implements IRepositoryDto {
         return await prisma.user.findMany()
     }
 
-    async update({id, bornDate,firstName,lastName,passwordHash }: IUpdateUserDto){
+    async update({id, bornDate,firstName,lastName,imagePath,passwordHash }: IUpdateUserDto){
         return prisma.user.update({
             where:{ id },
-            data: {bornDate,firstName,lastName,passwordHash }       
+            data: {bornDate,firstName,lastName,imagePath, passwordHash }       
          })
     }
 
-    async delete(id: number) {
-        return prisma.user.delete({ where: { id }})
+    async delete(id: number): Promise<boolean> {
+        await prisma.user.delete({ where:  {id} })
+
+        return true
     }
 }
 
 
 
-export { UserRepository }
+export { UserRepository } 

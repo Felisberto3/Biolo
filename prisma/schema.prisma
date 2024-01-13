@@ -18,7 +18,7 @@ model User {
   userType     String?
   passwordHash String
   imagePath    String?
-  bornDate     DateTime?
+  bornDate     DateTime?   
   posts        Post[]
 }
 
