@@ -16,7 +16,7 @@ class UpdateUserController {
 
         }
 
-        ValidateUpdateUserData({ firstName,lastName,bornDate, password,imagePath })
+        await ValidateUpdateUserData({ firstName,lastName,bornDate, password,imagePath })
 
         let passwordHash = ''
 
@@ -29,4 +29,4 @@ class UpdateUserController {
     }
 }
  
-export  { UpdateUserController }
+export  { UpdateUserController } 
