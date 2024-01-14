@@ -1,10 +1,10 @@
-import { UserRepository } from "../../repository/UserRepository";
-import { UpdateUserController } from "./UpdateUserController";
-import { UpdateUserUseCase } from "./UpdateUserUseCase";
+import { PostRepository } from "../../repository/PostRepository"
+import { UpdatePotController } from "./UpdatePostController"
+import { UpdatePostUseCase } from "./UpdatePostUseCase"
 
 
-const userRepository = new UserRepository()
-const updateUserUseCase = new UpdateUserUseCase(userRepository)
-const updateUser = new UpdateUserController(updateUserUseCase)
+const postRepository = new PostRepository()
+const updatePostUseCase = new UpdatePostUseCase(postRepository)
+const updatePost = new UpdatePotController(updatePostUseCase)
 
-export { updateUser }
+export { updatePost }

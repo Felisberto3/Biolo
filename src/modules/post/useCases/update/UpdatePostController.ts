@@ -11,20 +11,24 @@ class UpdatePotController {
             authorId,
             category,
             description,
-            id,
-            imagePath,
             stage,
             title } = req.body
+
+        let { id } = req.params
             
         const { userId } = req.currenUser
 
-        authorId = userId
+        authorId = userId 
 
-        const newPost = await this.updatePotUseCase.execute({
+        let imagePath = ''
+        if (req.file) 
+             imagePath= req.file.path
+
+        const newPost = await this.updatePotUseCase.execute({ 
             authorId,
             category,
             description,
-            id,
+            id: Number(id),
             imagePath,
             stage,
             title

@@ -8,6 +8,7 @@ class GetPostController {
 
     async handle(req:Request, res:Response) {
         const { id } = req.params
+        
 
         const Posts = await this.getPostUseCase.execute(Number(id))
 

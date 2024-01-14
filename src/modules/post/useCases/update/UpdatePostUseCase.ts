@@ -6,7 +6,7 @@ class UpdatePostUseCase {
 
     async execute({authorId,category,description,id,imagePath,stage,title}:IUpdatePostDto ) {
 
-        return this.postRepository.update({authorId,category,description,id,imagePath,stage,title})
+        return this.postRepository.update({ authorId, category,description,id,imagePath,stage,title})
     }
 }
 
