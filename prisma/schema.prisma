@@ -26,13 +26,21 @@ enum StageEnum {
   sold
   onSell
 }
+
 model Post {
-  id          Int     @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
   category    String?
   title       String
   description String?
   imagePath   String?
-  stage       StageEnum?  @default(onSell)
-  author      User    @relation(fields: [authorId], references: [id])
+  stage       StageEnum? @default(onSell)
+  author      User       @relation(fields: [authorId], references: [id])
   authorId    Int
+}
+
+model Dealing {
+  id       Int @id @default(autoincrement())
+  posterId Int
+  buyerId  Int
+  bioloId  Int
 }
