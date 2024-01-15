@@ -40,7 +40,6 @@ model Post {
 
 model Dealing {
   id       Int @id @default(autoincrement())
-  posterId Int
   buyerId  Int
   bioloId  Int
 }

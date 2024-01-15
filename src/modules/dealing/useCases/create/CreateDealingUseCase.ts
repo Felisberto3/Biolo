@@ -4,9 +4,9 @@ import { DealingRepository } from "../../repository/DealingRepository";
 class CreateDealingUseCase {
     constructor(private dealingRepository: DealingRepository ) { }
 
-    async execute({ bioloId,buyerId, posterId }:IcreateDealingDto) {
+    async execute({ bioloId,buyerId }:IcreateDealingDto) {
 
-        return await this.dealingRepository.create({ bioloId,buyerId, posterId })
+        return await this.dealingRepository.create({ bioloId,buyerId })
 
     }
 }
