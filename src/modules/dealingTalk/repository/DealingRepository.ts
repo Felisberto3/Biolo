@@ -20,10 +20,10 @@ class DealingTalkRepository implements IDealingTalkRepositoryDto {
         return await prisma.dealingTalk.findMany()
     }
 
-    async update({ content, id }: IUpdateDealingTalkDto): Promise<DealingTalk>{
+    async update({ content, id, imagePath }: IUpdateDealingTalkDto): Promise<DealingTalk>{
         return prisma.dealingTalk.update({
             where:{ id },
-            data: {content}       
+            data: {content, imagePath }       
          })
     }
 

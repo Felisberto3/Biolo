@@ -14,4 +14,4 @@ class UpdateDealingTalkUseCase {
     }
 }
 
-export  { UpdateDealingTalkUseCase }
+export  { UpdateDealingTalkUseCase }  

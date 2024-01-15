@@ -16,4 +16,4 @@ class CreateDealingController {
     }
 }
 
-export { CreateDealingController }
+export { CreateDealingController }  
