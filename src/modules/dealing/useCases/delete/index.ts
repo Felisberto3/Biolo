@@ -1,10 +1,10 @@
-import { PostRepository } from "../../repository/PostRepository"
-import { DeletePostController } from "./DeletePostController"
-import { DeletePostUseCase } from "./DeletePostUseCase"
+import { DealingRepository } from "../../repository/DealingRepository"
+import { DeleteDealingController } from "./DeleteDealingController"
+import { DeleteDealingUseCase } from "./DeleteDealingUseCase"
 
 
-const postRepository = new PostRepository()
-const deletePostUseCase = new DeletePostUseCase(postRepository)
-const deletePost = new DeletePostController(deletePostUseCase)
+const dealingRepository = new DealingRepository()
+const deleteDealingUseCase = new DeleteDealingUseCase(dealingRepository)
+const deleteDealing = new DeleteDealingController(deleteDealingUseCase)
 
-export { deletePost }
+export { deleteDealing }
