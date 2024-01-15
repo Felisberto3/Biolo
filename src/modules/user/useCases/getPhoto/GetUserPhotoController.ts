@@ -9,6 +9,10 @@ class GetUserPhotoController {
         const { id } = req.params
 
         const users = await this.getUserPhotoUseCase.execute(Number(id))
+
+        if (!users?.imagePath) {
+            return res.status(200).json({ "message": "there is not User photo yet"})
+        }
         
         const imgPath = users?.imagePath
 

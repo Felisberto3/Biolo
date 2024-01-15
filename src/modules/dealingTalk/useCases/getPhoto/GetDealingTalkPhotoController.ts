@@ -12,12 +12,16 @@ class GetDealingTalkPhotoController {
             throw new Error("Id not provided");
             
         }
+        
         const DealingTalk = await this.getDealingTalkPhotoUseCase.execute(Number(id))
 
+        if (!DealingTalk?.imagePath) {
+            return res.status(200).json({ "message": "there is not talk photo yet"})
+        }
         const imgPath = DealingTalk?.imagePath
 
 
-         return  res.status(200).sendFile(imgPath!) 
+         return  res.status(200).sendFile(imgPath) 
     }
 }
 

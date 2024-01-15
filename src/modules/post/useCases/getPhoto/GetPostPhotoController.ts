@@ -9,7 +9,10 @@ class GetPostPhotoController {
         const { id } = req.params
 
         const Post = await this.getPostPhotoUseCase.execute(Number(id))
-        
+
+        if (!Post?.imagePath) {
+            return res.status(200).json({ "message": "there is not Post photo yet"})
+        }
         const imgPath = Post?.imagePath
 
          return  res.status(200).sendFile(imgPath!) 

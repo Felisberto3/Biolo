@@ -16,7 +16,7 @@ dealingTalkRouter.post('/create/dealingTalk',currentUser , async (req:Request, r
 dealingTalkRouter.get('/show/dealingTalk/:id', async (req:Request, res:Response) =>{
     return getDealingTalk.handle(req,res)
 })
-dealingTalkRouter.get('/show/post/photo/:id', async (req:Request, res:Response) =>{
+dealingTalkRouter.get('/show/dealingTalk/photo/:id', async (req:Request, res:Response) =>{
     return getDealingTalkPhoto.handle(req,res)
 })
 
