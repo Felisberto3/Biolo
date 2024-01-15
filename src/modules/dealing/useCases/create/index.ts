@@ -1,10 +1,10 @@
-import { PostRepository } from "../../repository/PostRepository"
-import { CreatePostController } from "./CreateUserController"
-import { CreatePostUseCase } from "./CreateUserUseCase"
+import { DealingRepository } from "../../repository/DealingRepository"
+import { CreateDealingController } from "./CreateDealingController"
+import { CreateDealingUseCase } from "./CreateDealingUseCase"
 
 
-const postRepository = new PostRepository()
-const createPostUseCase = new CreatePostUseCase(postRepository)
-const createPost = new CreatePostController(createPostUseCase)
+const dealingRepository = new DealingRepository()
+const createDealingUseCase = new CreateDealingUseCase(dealingRepository)
+const createDealing = new CreateDealingController(createDealingUseCase)
 
-export { createPost }
+export { createDealing }

@@ -1,5 +1,5 @@
 import { Request,Response } from "express";
-import { CreatePostUseCase } from "./CreateUserUseCase";
+import { CreatePostUseCase } from "./CreatePostUseCase";
 
 
 class CreatePostController {

@@ -1,6 +1,7 @@
 import { PostRepository } from "../../repository/PostRepository"
-import { CreatePostController } from "./CreateUserController"
-import { CreatePostUseCase } from "./CreateUserUseCase"
+import { CreatePostController } from "./CreatePostController"
+import { CreatePostUseCase } from "./CreatePostUseCase"
+
 
 
 const postRepository = new PostRepository()
