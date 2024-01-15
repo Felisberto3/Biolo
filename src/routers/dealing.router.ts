@@ -4,7 +4,7 @@ import { getDealing } from "../modules/dealing/useCases/get";
 import { deleteDealing } from "../modules/dealing/useCases/delete";
 import { currentUser } from "../middleware/current-user";
 
-const dealingRouter = Router()
+const dealingRouter = Router() 
 
 dealingRouter.post('/create/dealing',currentUser , async (req:Request, res:Response) =>{
     return createDealing.handle(req,res)

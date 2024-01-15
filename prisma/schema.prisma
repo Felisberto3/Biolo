@@ -36,10 +36,23 @@ model Post {
   stage       StageEnum? @default(onSell)
   author      User       @relation(fields: [authorId], references: [id])
   authorId    Int
+  Dealing     Dealing[]
 }
 
 model Dealing {
-  id       Int @id @default(autoincrement())
-  buyerId  Int
-  bioloId  Int
+  id          Int           @id @default(autoincrement())
+  posterId    Int
+  buyerId     Int
+  biolo       Post          @relation(fields: [bioloId], references: [id])
+  bioloId     Int
+  DealingTalk DealingTalk[]
+}
+
+model DealingTalk {
+  id        Int     @id @default(autoincrement())
+  content   String
+  righterId Int
+  imagePath String?
+  dealing   Dealing @relation(fields: [dealingId], references: [id])
+  dealingId Int
 }

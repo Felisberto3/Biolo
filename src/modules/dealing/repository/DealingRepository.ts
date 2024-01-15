@@ -5,8 +5,8 @@ import { IDealingRepositoryDto, IcreateDealingDto } from "../interface";
 class DealingRepository implements IDealingRepositoryDto {
     constructor() { }
 
-    async create({ bioloId,buyerId  }: IcreateDealingDto): Promise<Dealing> {
-        return await prisma.dealing.create({ data: { bioloId, buyerId } })
+    async create({ bioloId,buyerId,posterId  }: IcreateDealingDto): Promise<Dealing> {
+        return await prisma.dealing.create({ data: { bioloId, buyerId,posterId } })
     }
 
     async findById(id: number): Promise<Dealing | null> {

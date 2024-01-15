@@ -7,11 +7,13 @@ class DeletePostController {
 
     async handle(req:Request, res:Response) {
         const { id } = req.params
+        const { userId } = req.currenUser
+
         if (! Number(id)) 
             throw new Error("Post id not provided");
 
             
-       const ya =  await this.deletePostUseCase.execute(Number(id))
+       const ya =  await this.deletePostUseCase.execute(Number(id),userId)
 
        return res.status(201).json(ya)
     }
