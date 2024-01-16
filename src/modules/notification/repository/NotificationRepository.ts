@@ -11,11 +11,9 @@ class NotificationRepository implements INotificationRepositoryDto {
 
     async findByUserId(recipientId: number): Promise<Notification | null> {
         if (!recipientId) return null
-        return await prisma.notification.findFirst({
-            where: { recipientId }
-        })
-    }
 
+        return await prisma.notification.findFirst({ where: { recipientId }})
+    }
 }
 
 

@@ -9,6 +9,7 @@ class GetNotificationController {
 
         const Notifications = await this.getNotificationCase.execute(userId)
 
+        
        return res.status(201).json(Notifications)
     }
 }

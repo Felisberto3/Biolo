@@ -15,5 +15,5 @@ class CreateNotificationController {
         return res.status(201).json(newNotification)
     }
 }
-
-export { CreateNotificationController }  
+ 
+export { CreateNotificationController }   
