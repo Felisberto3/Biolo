@@ -1,10 +1,10 @@
-import { DealingRepository } from "../../repository/DealingRepository";
-import { GetDealingCase } from "./GetDealingCase";
-import { GetDealingController } from "./GetDealingController";
+import { NotificationRepository } from "../../repository/NotificationRepository";
+import { GetNotificationCase } from "./GetNotificationCase";
+import { GetNotificationController } from "./GetNotificationController";
 
 
-const dealingRepository = new DealingRepository()
-const getDealingUseCase = new GetDealingCase(dealingRepository)
-const getDealing = new GetDealingController(getDealingUseCase)
+const notificationRepository = new NotificationRepository()
+const getNotificationUseCase = new GetNotificationCase(notificationRepository)
+const getNotification = new GetNotificationController(getNotificationUseCase)
 
-export { getDealing }
+export { getNotification }

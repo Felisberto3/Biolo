@@ -8,8 +8,7 @@ interface IcreateNotificationDto {
 
 interface INotificationRepositoryDto {
     create({ notifiedBy, recipientId, type }: IcreateNotificationDto): Promise<Notification>
-    findById(id: number): Promise<Notification | null>
-    delete(id: number): Promise<boolean>
+    findByUserId(id: number): Promise<Notification | null>
 }
 
 export { IcreateNotificationDto, INotificationRepositoryDto  }
