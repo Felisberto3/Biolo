@@ -6,9 +6,12 @@ class CreateFollowerUseCase {
 
     async execute({ followedId, followerId}:IcreateFollowerDto) {
 
+        if (followedId === followerId) 
+            throw new Error("You cannot follower your self");
+
         return await this.FollowerRepository.create({ followedId, followerId})
 
     }
 }
 
-export  { CreateFollowerUseCase }
+export  { CreateFollowerUseCase } 

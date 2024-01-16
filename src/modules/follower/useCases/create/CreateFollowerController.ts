@@ -6,7 +6,9 @@ class CreateFollowerController {
     constructor(private createFollowerUseCase: CreateFollowerUseCase) { }
 
     async handle(req:Request, res:Response) {
-        const { followedId, followerId } = req.body
+        const { followedId } = req.body
+
+        const { userId: followerId } = req.currenUser
 
         const newFollower = await this.createFollowerUseCase.execute({ followedId, followerId})
          
