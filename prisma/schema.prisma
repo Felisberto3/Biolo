@@ -11,8 +11,8 @@ datasource db {
 }
 
 model User {
-  id           Int       @id @default(autoincrement())
-  email        String    @unique
+  id           Int        @id @default(autoincrement())
+  email        String     @unique
   firstName    String?
   lastName     String?
   userType     String?
@@ -20,6 +20,7 @@ model User {
   imagePath    String?
   bornDate     DateTime?
   posts        Post[]
+  Follower     Follower[]
 }
 
 enum StageEnum {
@@ -55,4 +56,11 @@ model DealingTalk {
   imagePath String?
   dealing   Dealing @relation(fields: [dealingId], references: [id])
   dealingId Int
+}
+
+model Follower {
+  id         Int  @id @default(autoincrement())
+  followerId Int
+  user       User @relation(fields: [followedId], references: [id])
+  followedId Int
 }
