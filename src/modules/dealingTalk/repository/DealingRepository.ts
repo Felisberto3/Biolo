@@ -16,7 +16,7 @@ class DealingTalkRepository implements IDealingTalkRepositoryDto {
         })
     }
 
-    async findAll(){
+    async findAll(){ 
         return await prisma.dealingTalk.findMany()
     }
 

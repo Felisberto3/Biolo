@@ -15,5 +15,5 @@ class CreateDealingController {
         return res.status(201).json(newDealing)
     }
 }
-
+ 
 export { CreateDealingController }  

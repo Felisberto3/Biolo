@@ -16,6 +16,10 @@ class DealingRepository implements IDealingRepositoryDto {
         })
     }
 
+    async findByBuyerId(buyerId: number): Promise<Dealing | null> {
+        return await prisma.dealing.findFirst({ where: { buyerId }})
+    }
+
     async findAll(){
         return await prisma.dealing.findMany()
     }

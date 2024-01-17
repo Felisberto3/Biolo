@@ -16,10 +16,10 @@ class CreateDealingTalkUseCase {
 
         if (righterId !== dealing?.posterId ) {
             await this.notificationRepository.create({
-                notifiedBy:righterId,
+                notifiedBy:righterId, 
                 recipientId: dealing?.posterId!,
                 type:'Enviou-te uma mensagem',
-                postId: dealing?.bioloId!
+                postId: dealing?.bioloId! 
             })
         }
        
