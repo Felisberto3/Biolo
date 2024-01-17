@@ -5,8 +5,8 @@ import { INotificationRepositoryDto, IcreateNotificationDto } from "../interface
 class NotificationRepository implements INotificationRepositoryDto {
     constructor() { }
 
-    async create({ notifiedBy,recipientId,type  }: IcreateNotificationDto): Promise<Notification> {
-        return await prisma.notification.create({ data: { notifiedBy,type,recipientId } })
+    async create({ notifiedBy,recipientId,type,postId  }: IcreateNotificationDto): Promise<Notification> {
+        return await prisma.notification.create({ data: { notifiedBy,type,recipientId, postId } })
     }
 
     async findByUserId(recipientId: number): Promise<Notification | null> {

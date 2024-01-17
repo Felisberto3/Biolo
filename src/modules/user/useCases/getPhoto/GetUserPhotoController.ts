@@ -20,4 +20,4 @@ class GetUserPhotoController {
     }
 }
 
-export  { GetUserPhotoController }
+export  { GetUserPhotoController } 

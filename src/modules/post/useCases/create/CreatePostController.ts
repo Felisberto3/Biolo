@@ -6,7 +6,8 @@ class CreatePostController {
     constructor(private createPostUseCase: CreatePostUseCase) { }
 
     async handle(req:Request, res:Response) {
-        const { authorId,category,description,stage,title } = req.body
+        const { category,description,stage,title } = req.body
+        const { userId: authorId} = req.currenUser
 
         const newPost = await this.createPostUseCase.execute({ authorId,category,description,stage,title})
          

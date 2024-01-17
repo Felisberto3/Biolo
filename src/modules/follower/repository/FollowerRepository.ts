@@ -16,6 +16,12 @@ class FollowerRepository implements IFollowerRepositoryDto {
         })
     }
 
+    async findByfollowedId(followedId: number): Promise<Follower[] | null> {
+        if (!followedId)  return null
+
+        return await prisma.follower.findMany({ where: { followedId }})
+    }
+
     async findAll(){
         return await prisma.follower.findMany()
     }

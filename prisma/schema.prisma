@@ -73,4 +73,5 @@ model Notification {
   notifiedBy  Int
   user        User   @relation(fields: [recipientId], references: [id])
   recipientId Int
+  postId      Int?
 }
