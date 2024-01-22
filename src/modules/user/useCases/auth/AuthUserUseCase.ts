@@ -21,8 +21,7 @@ class AuthUserUseCase {
         const token =  tokenService(email, userExist.id)
 
         return {
-            email, 
-            userId: userExist.id,
+            userExist,
             token
         }
 

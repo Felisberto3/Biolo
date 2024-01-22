@@ -19,7 +19,7 @@ model User {
   passwordHash String
   imagePath    String?
   bornDate     DateTime?
-  posts        Post[]
+  posts        Post[] 
   Follower     Follower[]
   Notification Notification[]
 }
@@ -37,7 +37,7 @@ model Post {
   imagePath   String?
   stage       StageEnum? @default(onSell)
   ocupation   String?
-  author      User       @relation(fields: [authorId], references: [id])
+  author      User       @relation(fields: [authorId], references: [id], onDelete: Cascade) 
   authorId    Int
   Dealing     Dealing[]
 }
@@ -46,7 +46,7 @@ model Dealing {
   id          Int           @id @default(autoincrement())
   posterId    Int
   buyerId     Int
-  biolo       Post          @relation(fields: [bioloId], references: [id])
+  biolo       Post          @relation(fields: [bioloId], references: [id], onDelete: Cascade)
   bioloId     Int
   DealingTalk DealingTalk[]
 }
@@ -56,14 +56,14 @@ model DealingTalk {
   content   String
   righterId Int
   imagePath String?
-  dealing   Dealing @relation(fields: [dealingId], references: [id])
+  dealing   Dealing @relation(fields: [dealingId], references: [id], onDelete: Cascade)
   dealingId Int
 }
 
 model Follower {
   id         Int  @id @default(autoincrement())
   followerId Int
-  user       User @relation(fields: [followedId], references: [id])
+  user       User @relation(fields: [followedId], references: [id], onDelete: Cascade)
   followedId Int
 }
 
@@ -71,7 +71,23 @@ model Notification {
   id          Int    @id @default(autoincrement())
   type        String
   notifiedBy  Int
-  user        User   @relation(fields: [recipientId], references: [id])
+  user        User   @relation(fields: [recipientId], references: [id], onDelete: Cascade)
   recipientId Int
   postId      Int?
+}
+
+model Admin {
+  id           Int     @id @default(autoincrement())
+  firstName    String
+  lastName     String
+  email        String
+  passwordHash String? @default("12345678")
+  type         String  @default("normal")
+}
+
+model AdminNotification {
+  id          Int    @id @default(autoincrement())
+  description String
+  acuserId    Int
+  acusedId    Int
 }

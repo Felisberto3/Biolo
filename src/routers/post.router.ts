@@ -9,7 +9,7 @@ import { createPost } from "../modules/post/useCases/create";
 
 const postRouter = Router()
 
-postRouter.post('/create/post',currentUser,async (req:Request, res:Response) =>{
+postRouter.post('/create/post',currentUser, async (req:Request, res:Response) =>{
     return createPost.handle(req,res)
 })
 postRouter.get('/show/post/:id', async (req:Request, res:Response) =>{
