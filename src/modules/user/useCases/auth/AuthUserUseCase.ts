@@ -13,7 +13,7 @@ class AuthUserUseCase {
         }
 
         const isEqual = await compare(password,userExist.passwordHash)
-
+ 
         if (!isEqual) {
             throw new Error("Email or Password incorrect ");
         }
