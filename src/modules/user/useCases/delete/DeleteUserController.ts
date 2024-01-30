@@ -8,6 +8,7 @@ class DeleteUserController {
     async handle(req:Request, res:Response) {
         const { id } = req.params
         const {userId } = req.currenUser
+
         if (! Number(id)) 
             throw new Error("User id not provided");
 

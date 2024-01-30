@@ -26,12 +26,11 @@ userRouter.get('/show/user/photo/:id', async (req:Request, res:Response) =>{
     return getUserPhoto.handle(req,res)
 })
 
-
 userRouter.put('/update/user',currentUser, uploads.single('file'), async (req:Request, res:Response) =>{
     return updateUser.handle(req,res)
 })
 userRouter.delete('/delete/user/:id', currentUser, async (req:Request, res:Response) =>{
     return deleteUser.handle(req,res)
 })
-
+ 
 export { userRouter } 

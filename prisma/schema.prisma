@@ -22,6 +22,9 @@ model User {
   posts        Post[] 
   Follower     Follower[]
   Notification Notification[]
+
+  //discription
+  //Ocupetion
 }
 
 enum StageEnum {
